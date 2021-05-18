@@ -26,7 +26,7 @@ jobs:
       with:
         azcliversion: 2.20.0
         inlineScript: |
-           az cdn endpoint purge --content-paths  "/*" --profile-name "my-static-website" --name "brian-gaber" --resource-group "rg_static_website"
+           az cdn endpoint purge --content-paths  "/*" --profile-name MyCDNProfile --name "brian-gaber" --resource-group "rg_static_website"
 
   # Azure logout 
     - name: logout
