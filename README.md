@@ -16,10 +16,16 @@
 > az storage blob service-properties update --account-name bgresumegitactions --static-website --404-document 404.html --index-document index.html
 ```
 
+## Azure CLI Create Content Delivery Network
+
+```
+az cdn endpoint create --resource-group rg_static_website --name "brian-gaber" --profile-name "my-static-website" --origin bgresumegitactions.z27.web.core.windows.net
+```
+
 ## Azure CLI Purge Content Delivery Network
 
 ```
-> az cdn endpoint purge --content-paths  "/*" --profile-name "my-static-website" --name "brian-gaber.azureedge.net" --resource-group "rg_static_website"
+> az cdn endpoint purge --content-paths  "/*" --profile-name "my-static-website" --name "brian-gaber" --resource-group "rg_static_website"
 ```
 
 ## Azure CLI Resource Group Deletion
