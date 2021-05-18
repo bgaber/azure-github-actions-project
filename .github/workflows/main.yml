@@ -1,0 +1,34 @@
+name: Blob storage website CI
+
+on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:            
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Upload to blob storage
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.20.0
+        inlineScript: |
+            az storage blob upload-batch --account-name bgresumegitactions -d '$web' -s .
+    - name: Purge CDN endpoint
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.20.0
+        inlineScript: |
+           az cdn endpoint purge --content-paths  "/*" --profile-name "static-website" --name "brian-gaber.azureedge.net" --resource-group "rg_static_website"
+
+  # Azure logout 
+    - name: logout
+      run: |
+            az logout
