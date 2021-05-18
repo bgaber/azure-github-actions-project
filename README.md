@@ -1,13 +1,13 @@
 ## Azure CLI Resource Group Creation
 
 ```powershell
-> az group create --name rg_static_website --location canadaeast
+> az group create --name rg_static_website --location canadacentral
 ```
 
 ## Azure CLI Storage Account Creation
 
 ```
-> az storage account create --name bgresumegitactions --resource-group rg_static_website --location canadaeast --sku Standard_LRS
+> az storage account create --name bgresumegitactions --resource-group rg_static_website --location canadacentral --sku Standard_LRS
 ```
 
 ## Azure CLI Blob Static Website Creation
