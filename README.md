@@ -1,16 +1,16 @@
 # Azure Static Website GitHub Actions Project
-A Cloud Guru Challenge - https://acloudguru.com/blog/engineering/cloudguruchallenge-your-resumer-in-azure
+A Cloud Guru Challenge - https://acloudguru.com/blog/engineering/cloudguruchallenge-your-resume-in-azure
 
 ## Azure CLI Resource Group Creation
 
 ```powershell
-> az group create --name static_website_rg --location eastus
+> az group create --name StaticWebsiteRG --location canadacentral
 ```
 
 ## Azure CLI Storage Account Creation
 
 ```
-> az storage account create --name briangithubactions --resource-group static_website_rg --location eastus --sku Standard_LRS
+> az storage account create --name briangithubactions --resource-group StaticWebsiteRG --location canadacentral --sku Standard_LRS
 ```
 
 ## Azure CLI Blob Static Website Creation
@@ -22,23 +22,23 @@ A Cloud Guru Challenge - https://acloudguru.com/blog/engineering/cloudguruchalle
 ## Azure CLI Create a Content Delivery Network (CDN) profile
 
 ```
-az cdn profile create --resource-group static_website_rg --name MyCDNProfile --sku Standard_Microsoft
+az cdn profile create --resource-group StaticWebsiteRG --name MyCDNProfile --sku Standard_Microsoft
 ```
 
 ## Azure CLI Create a Content Delivery Network (CDN) endpoint
 
 ```
-az cdn endpoint create --resource-group static_website_rg --name "brian-gaber" --profile-name MyCDNProfile --origin briangithubactions.z13.web.core.windows.net
+az cdn endpoint create --resource-group StaticWebsiteRG --name "brian-gaber" --profile-name MyCDNProfile --origin briangithubactions.z9.web.core.windows.net --origin-host-header briangithubactions.z9.web.core.windows.net
 ```
 
 ## Azure CLI Purge Content Delivery Network (CDN) endpoint
 
 ```
-> az cdn endpoint purge --content-paths  "/*" --profile-name MyCDNProfile --name "brian-gaber" --resource-group "static_website_rg"
+> az cdn endpoint purge --content-paths  "/*" --profile-name MyCDNProfile --name "brian-gaber" --resource-group "StaticWebsiteRG"
 ```
 
 ## Azure CLI Resource Group Deletion
 
 ```
-> az group delete --name static_website_rg -y
+> az group delete --name StaticWebsiteRG -y
 ```
