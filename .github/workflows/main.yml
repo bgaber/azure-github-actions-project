@@ -18,15 +18,15 @@ jobs:
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.20.0
+        azcliversion: 2.23.0
         inlineScript: |
-            az storage blob upload-batch --account-name bgresumegitactions -d '$web' -s .
+            az storage blob upload-batch --account-name briangithubactions -d '$web' -s .
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.20.0
+        azcliversion: 2.23.0
         inlineScript: |
-           az cdn endpoint purge --content-paths  "/*" --profile-name MyCDNProfile --name "brian-gaber" --resource-group "rg_static_website"
+           az cdn endpoint purge --content-paths  "/*" --profile-name MyCDNProfile --name "brian-gaber" --resource-group static_website_rg
 
   # Azure logout 
     - name: logout
