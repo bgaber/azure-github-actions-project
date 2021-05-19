@@ -1,3 +1,5 @@
+# Azure Static Website GitHub Actions Project
+
 ## Azure CLI Resource Group Creation
 
 ```powershell
