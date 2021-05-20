@@ -1,7 +1,7 @@
 # Azure Static Website GitHub Actions Project
 A Cloud Guru Challenge - https://acloudguru.com/blog/engineering/cloudguruchallenge-your-resume-in-azure
 
-![Alt text](readme_images/resume-challenge?raw=true "Azure Static Website GitHub Actions Project")
+![Alt text](readme_images/resume-challenge.png?raw=true "Azure Static Website GitHub Actions Project")
 
 ## Azure CLI Resource Group Creation
 
