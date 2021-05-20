@@ -1,0 +1,8 @@
+config.py
+*.v*.py
+*.v*.js
+*.v*.html
+*.v*.css
+*.v*.php
+*.pptx
+*.txt

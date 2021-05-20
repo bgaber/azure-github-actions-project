@@ -1,6 +1,8 @@
 # Azure Static Website GitHub Actions Project
 A Cloud Guru Challenge - https://acloudguru.com/blog/engineering/cloudguruchallenge-your-resume-in-azure
 
+![Alt text](readme_images/resume-challenge?raw=true "Azure Static Website GitHub Actions Project")
+
 ## Azure CLI Resource Group Creation
 
 ```powershell
@@ -22,14 +24,22 @@ A Cloud Guru Challenge - https://acloudguru.com/blog/engineering/cloudguruchalle
 ## Azure CLI Create a Content Delivery Network (CDN) profile
 
 ```
-az cdn profile create --resource-group StaticWebsiteRG --name MyCDNProfile --sku Standard_Microsoft
+> az cdn profile create --resource-group StaticWebsiteRG --name MyCDNProfile --sku Standard_Microsoft
 ```
 
 ## Azure CLI Create a Content Delivery Network (CDN) endpoint
 
 ```
-az cdn endpoint create --resource-group StaticWebsiteRG --name "brian-gaber" --profile-name MyCDNProfile --origin briangithubactions.z9.web.core.windows.net --origin-host-header briangithubactions.z9.web.core.windows.net
+> az cdn endpoint create --resource-group StaticWebsiteRG --name brian-gaber --profile-name MyCDNProfile --origin briangithubactions.z9.web.core.windows.net --origin-host-header briangithubactions.z9.web.core.windows.net
 ```
+
+## Azure CLI Create URL Redirect rule to redirect any HTTP requests to HTTPS
+
+```
+> az cdn endpoint rule add --resource-group StaticWebsiteRG --name brian-gaber --profile-name MyCDNProfile --order 1 --rule-name "redirect" --match-variable RequestScheme --operator Equal --match-values HTTP --action-name "UrlRedirect" --redirect-protocol Https --redirect-type Moved
+```
+
+Now the HTML code is uploaded by GitHub Actions by a push to the GitHub repository which will trigger GitHub Actions.
 
 ## Azure CLI Purge Content Delivery Network (CDN) endpoint
 
