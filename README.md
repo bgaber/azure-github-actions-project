@@ -39,7 +39,7 @@ A Cloud Guru Challenge - https://acloudguru.com/blog/engineering/cloudguruchalle
 > az cdn endpoint rule add --resource-group StaticWebsiteRG --name brian-gaber --profile-name MyCDNProfile --order 1 --rule-name "redirect" --match-variable RequestScheme --operator Equal --match-values HTTP --action-name "UrlRedirect" --redirect-protocol Https --redirect-type Moved
 ```
 
-# Now the HTML code is uploaded by GitHub Actions by a push to the GitHub repository which will trigger GitHub Actions.
+### Now the HTML code is uploaded by GitHub Actions by a push to the GitHub repository which will trigger GitHub Actions.
 
 ## Azure CLI Purge Content Delivery Network (CDN) endpoint
 
