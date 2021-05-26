@@ -8,7 +8,7 @@ $(document).ready(function() {
         success: function (jsonlist) {
             console.log(jsonlist);
             alert("Counter: " + jsonlist.counter);
-            //$("#view_count").html(jsonlist.counter);
+            $("#view_count").html(jsonlist.counter);
             
         },
         error: function (xhr, status, errorThrown) {
