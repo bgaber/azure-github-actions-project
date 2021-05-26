@@ -24,12 +24,12 @@ jobs:
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.php
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.css
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.js
-  #  - name: Purge CDN endpoint
-  #    uses: azure/CLI@v1
-  #    with:
-  #      azcliversion: 2.23.0
-  #      inlineScript: |
-  #         az cdn endpoint purge --content-paths  "/*" --profile-name MyCDNProfile --name "brian-gaber" --resource-group StaticWebsiteRG
+    - name: Purge CDN endpoint
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.23.0
+        inlineScript: |
+           az cdn endpoint purge --content-paths  "/*" --profile-name MyCDNProfile --name "brian-gaber" --resource-group StaticWebsiteRG
 
   # Azure logout 
     - name: logout
