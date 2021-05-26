@@ -1,0 +1,39 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "myCosmosInputBinding",
+      "databaseName": "ToDoList",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{Query.id}",
+      "PartitionKey": "{Query.account_number}"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "myCosmosOutputBinding",
+      "databaseName": "ToDoList",
+      "collectionName": "Items",
+      "createIfNotExists": false,
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "out"
+    }
+  ]
+}
