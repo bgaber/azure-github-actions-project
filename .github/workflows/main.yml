@@ -28,6 +28,12 @@ jobs:
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.png
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.xml
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.thmx
+            az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.eot
+            az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.svg
+            az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.ttf
+            az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.woff
+            az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.less
+            az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.scss
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
