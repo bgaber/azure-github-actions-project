@@ -6,7 +6,7 @@ $(document).ready(function() {
         // The type of data expected back
         dataType: "json",
         success: function (jsonlist) {
-            console.log(jsonlist);
+            //console.log(jsonlist);
             //alert("Counter: " + jsonlist.counter);
             $("#view_count").html(jsonlist.counter);
             
