@@ -7,7 +7,7 @@ $(document).ready(function() {
         dataType: "json",
         success: function (jsonlist) {
             console.log(jsonlist);
-            alert("Counter: " + jsonlist.counter);
+            //alert("Counter: " + jsonlist.counter);
             $("#view_count").html(jsonlist.counter);
             
         },
