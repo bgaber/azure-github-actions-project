@@ -26,6 +26,7 @@ jobs:
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.js
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.jpg
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.png
+            az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.gif
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.xml
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.thmx
             az storage blob upload-batch --account-name briangithubactions -d '$web' -s . --pattern *.eot
