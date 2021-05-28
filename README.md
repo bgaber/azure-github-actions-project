@@ -1,7 +1,13 @@
 # Azure Static Website GitHub Actions Project
 A Cloud Guru Challenge - https://acloudguru.com/blog/engineering/cloudguruchallenge-your-resume-in-azure
 
-![Alt text](readme_images/resume-challenge.png?raw=true "Azure Static Website GitHub Actions Project")
+Objective
+---------
+![Alt text](readme_images/resume-challenge.png?raw=true "A Cloud Guru Challenge Diagram")
+
+Solution
+--------
+![Alt text](readme_images/github-actions-cicd-project.png?raw=true "Azure Static Website GitHub Actions Project Diagram")
 
 ## Azure CLI Resource Group Creation
 
@@ -37,6 +43,20 @@ A Cloud Guru Challenge - https://acloudguru.com/blog/engineering/cloudguruchalle
 
 ```
 > az cdn endpoint rule add --resource-group StaticWebsiteRG --name brian-gaber --profile-name MyCDNProfile --order 1 --rule-name "redirect" --match-variable RequestScheme --operator Equal --match-values HTTP --action-name "UrlRedirect" --redirect-protocol Https --redirect-type Moved
+```
+
+### Create a canonical name (CNAME) record with Azure DNS or your DNS provider to point to your CDN endpoint.
+### https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain
+
+## Azure CLI Create a custom domain for your endpoint
+```
+> az cdn custom-domain create --resource-group StaticWebsiteRG --endpoint-name brian-gaber --profile-name MyCDNProfile --name MyCustomDomain --hostname briangaber.esnap.ca
+
+```
+
+## Azure CLI Enable https
+```
+az cdn custom-domain enable-https --resource-group StaticWebsiteRG --endpoint-name brian-gaber --profile-name MyCDNProfile --name MyCustomDomain
 ```
 
 ### Now the HTML code is uploaded by GitHub Actions by a push to the GitHub repository which will trigger GitHub Actions.
