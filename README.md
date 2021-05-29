@@ -3,11 +3,11 @@ A Cloud Guru Challenge - https://acloudguru.com/blog/engineering/cloudguruchalle
 
 Objective
 ---------
-![Alt text](readme_images/resume-challenge.png?raw=true "A Cloud Guru Challenge Diagram")
+![Alt text](readme_images/resume-challenge.png?raw=true "A Cloud Guru Challenge Objective Diagram")
 
 Solution
 --------
-![Alt text](readme_images/github-actions-cicd-project.png?raw=true "Azure Static Website GitHub Actions Project Diagram")
+![Alt text](readme_images/github-actions-cicd-project.png?raw=true "Azure Static Website GitHub Actions Solution Diagram")
 
 ## Azure CLI Resource Group Creation
 
@@ -45,7 +45,7 @@ Solution
 > az cdn endpoint rule add --resource-group StaticWebsiteRG --name brian-gaber --profile-name MyCDNProfile --order 1 --rule-name "redirect" --match-variable RequestScheme --operator Equal --match-values HTTP --action-name "UrlRedirect" --redirect-protocol Https --redirect-type Moved
 ```
 
-### Create a canonical name (CNAME) record with Azure DNS or your DNS provider to point to your CDN endpoint.
+### Before you can use a custom domain with an Azure CDN endpoint, you must first create a canonical name (CNAME) record with Azure DNS or your DNS provider to point to your CDN endpoint.
 ### https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain
 
 ## Azure CLI Create a custom domain for your endpoint
@@ -66,6 +66,8 @@ az cdn custom-domain enable-https --resource-group StaticWebsiteRG --endpoint-na
 ```
 > az cdn endpoint purge --content-paths  "/*" --profile-name MyCDNProfile --name "brian-gaber" --resource-group "StaticWebsiteRG"
 ```
+
+### Before the Resource Group containing the CDN Profile can be deleted the DNS CNAME record that points to the CDN endpoint must be removed from Azure DNS or your DNS provider
 
 ## Azure CLI Resource Group Deletion
 
